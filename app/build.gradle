@@ -4,8 +4,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
-    id 'dagger.hilt.android.plugin'
-
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -53,8 +52,8 @@ dependencies {
 
     //dependency injection
     // Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
 
     // LiveData and ViewModel
     def lifecycle_version = "2.4.1"
@@ -82,4 +81,9 @@ dependencies {
 
     //For MultiPartBody creating request body
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes true
 }
