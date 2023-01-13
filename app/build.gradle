@@ -88,6 +88,9 @@ dependencies {
 
     // ViewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // Pin View
+    implementation 'io.github.chaosleung:pinview:1.4.4'
 }
 
 // Allow references to generated code

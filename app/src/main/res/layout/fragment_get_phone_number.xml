@@ -23,6 +23,7 @@
         android:id="@+id/tv_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Login to your account."
         android:textColor="#777777"
         android:textSize="16sp"
@@ -105,7 +106,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="40dp"
