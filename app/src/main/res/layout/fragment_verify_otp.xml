@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
         android:layout_marginTop="4dp"
-        android:text="We have sent OTP code on your mobile number (+959 44441111)"
+        tools:text="We have sent OTP code on your mobile number (+959 44441111)"
         android:textAlignment="center"
         android:textColor="#777777"
         android:textSize="16sp"
