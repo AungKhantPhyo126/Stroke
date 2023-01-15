@@ -1,5 +1,6 @@
 package com.stroke.stroke_android.network_di
 
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.stroke.stroke_android.api.AuthService
 import dagger.Module
 import dagger.Provides

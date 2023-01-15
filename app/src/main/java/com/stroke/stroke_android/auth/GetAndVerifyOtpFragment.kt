@@ -24,7 +24,7 @@ class GetAndVerifyOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPagerAdapter = AuthScreenPagerAdapter(this) {
+        val viewPagerAdapter = AuthScreenPagerAdapter(this) { _, _ ->
             binding.vpGetPhoneAndOtp.currentItem = 1
         }
 

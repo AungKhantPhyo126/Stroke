@@ -14,7 +14,7 @@ import com.stroke.stroke_android.databinding.FragmentGetPhoneNumberBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GetPhoneNumberFragment(private val onTap: (String) -> Unit) : Fragment(),
+class GetPhoneNumberFragment(private val onTap: (String, Int) -> Unit) : Fragment(),
     AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentGetPhoneNumberBinding
@@ -44,8 +44,12 @@ class GetPhoneNumberFragment(private val onTap: (String) -> Unit) : Fragment(),
             when (it) {
                 is Resource.Loading -> {}
                 is Resource.Success -> {
-                    Toast.makeText(requireContext(), it.data.toString(), Toast.LENGTH_LONG).show()
-                    onTap(viewModel.countryCode + viewModel.phoneLive.value)
+                    Toast.makeText(requireContext(), it.data?.first().toString(), Toast.LENGTH_LONG)
+                        .show()
+                    onTap(
+                        viewModel.countryCode + viewModel.phoneLive.value,
+                        it.data?.last()?.toInt() ?: -1
+                    )
                 }
                 is Resource.Error -> {}
             }

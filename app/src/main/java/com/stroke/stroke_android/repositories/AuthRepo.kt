@@ -4,7 +4,7 @@ import com.stroke.stroke_android.commonKotlin.Resource
 
 interface AuthRepo {
 
-    suspend fun sendOtp(phoneNumber: String): Resource<String>
+    suspend fun sendOtp(phoneNumber: String): Resource<List<String>>
 
     suspend fun verifyOtp(phoneNumber: String, requestId: Int, otp: Int): Resource<String>
 

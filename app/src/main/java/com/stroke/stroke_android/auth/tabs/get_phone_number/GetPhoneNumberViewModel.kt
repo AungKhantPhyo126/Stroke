@@ -63,14 +63,15 @@ class GetPhoneNumberViewModel @Inject constructor(
         countryCode = mockList[index].prefixCode
     }
 
-    private val _sendOtpStatusLive = MutableLiveData<Resource<String>>()
-    val sendOtpStatusLive: LiveData<Resource<String>>
+    private val _sendOtpStatusLive = MutableLiveData<Resource<List<String>>>()
+    val sendOtpStatusLive: LiveData<Resource<List<String>>>
         get() = _sendOtpStatusLive
 
     fun onSubmit() {
         _sendOtpStatusLive.value = Resource.Loading()
         viewModelScope.launch {
-            _sendOtpStatusLive.value = authRepo.sendOtp("$countryCode${_phoneLive.value.toString()}")
+            _sendOtpStatusLive.value =
+                authRepo.sendOtp("$countryCode${_phoneLive.value.toString()}")
         }
     }
 
