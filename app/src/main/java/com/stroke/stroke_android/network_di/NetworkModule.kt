@@ -1,5 +1,6 @@
 package com.stroke.stroke_android.network_di
 
+import com.stroke.stroke_android.api.AuthService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -8,9 +9,10 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
-const val BASE_URL = "http://13.215.252.104/"
+const val BASE_URL = "http://13.215.252.104"
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -37,5 +39,9 @@ class NetworkModule {
             })
         }.build()
     }
+
+    @Provides
+    @Singleton
+    fun provideAuthService(retrofit: Retrofit) = retrofit.create<AuthService>()
 
 }

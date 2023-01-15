@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1475" />
+        <entry key="app/src/main/res/drawable/ic_white_stroke_logo.xml" value="0.132" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/fragment_get_and_verify_otp.xml" value="0.27033350596170946" />
+        <entry key="app/src/main/res/layout/fragment_get_and_verify_otp.xml" value="0.22850611338358445" />
         <entry key="app/src/main/res/layout/fragment_get_phone_number.xml" value="0.2727073638793455" />
         <entry key="app/src/main/res/layout/fragment_verify_otp.xml" value="0.34444376627604173" />
         <entry key="app/src/main/res/layout/item_country_code.xml" value="0.3582199096679688" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1814814814814815" />
       </map>
     </option>
   </component>

@@ -3,11 +3,17 @@ package com.stroke.stroke_android.auth.tabs.get_phone_number
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.stroke.stroke_android.commonKotlin.Resource
+import com.stroke.stroke_android.repositories_impl.AuthRepoImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GetPhoneNumberViewModel @Inject constructor() : ViewModel() {
+class GetPhoneNumberViewModel @Inject constructor(
+    private val authRepo: AuthRepoImpl
+) : ViewModel() {
 
     // dummy country codes
     val mockList = listOf(
@@ -57,6 +63,15 @@ class GetPhoneNumberViewModel @Inject constructor() : ViewModel() {
         countryCode = mockList[index].prefixCode
     }
 
-    fun onSubmit() = countryCode + phoneLive.value
+    private val _sendOtpStatusLive = MutableLiveData<Resource<String>>()
+    val sendOtpStatusLive: LiveData<Resource<String>>
+        get() = _sendOtpStatusLive
+
+    fun onSubmit() {
+        _sendOtpStatusLive.value = Resource.Loading()
+        viewModelScope.launch {
+            _sendOtpStatusLive.value = authRepo.sendOtp("$countryCode${_phoneLive.value.toString()}")
+        }
+    }
 
 }

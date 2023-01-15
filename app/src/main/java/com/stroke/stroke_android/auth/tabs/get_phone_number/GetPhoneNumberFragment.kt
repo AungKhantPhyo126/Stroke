@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.stroke.stroke_android.commonKotlin.Resource
 import com.stroke.stroke_android.databinding.FragmentGetPhoneNumberBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,7 +37,18 @@ class GetPhoneNumberFragment(private val onTap: (String) -> Unit) : Fragment(),
         binding.spinnerCountryCode.onItemSelectedListener = this
 
         binding.btnConfirmPhone.setOnClickListener {
-            onTap(viewModel.onSubmit())
+            viewModel.onSubmit()
+        }
+
+        viewModel.sendOtpStatusLive.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {}
+                is Resource.Success -> {
+                    Toast.makeText(requireContext(), it.data.toString(), Toast.LENGTH_LONG).show()
+                    onTap(viewModel.countryCode + viewModel.phoneLive.value)
+                }
+                is Resource.Error -> {}
+            }
         }
 
         binding.etPhoneNumber.addTextChangedListener { editable ->
