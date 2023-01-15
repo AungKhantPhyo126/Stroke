@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.tabs.verify_otp.VerifyOtpFragment">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Verification Code"
+        android:textColor="#7C73E6"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="4dp"
+        tools:text="We have sent OTP code on your mobile number (+959 44441111)"
+        android:textAlignment="center"
+        android:textColor="#777777"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/pv_otp_code"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:cursorVisible="true"
+        android:hint="000000"
+        android:inputType="number"
+        android:textColor="#262626"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cursorWidth="2dp"
+        app:itemCount="6"
+        app:itemHeight="48dp"
+        app:itemRadius="8dp"
+        app:itemSpacing="12dp"
+        app:itemWidth="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_body"
+        app:lineColor="@color/otp_input_border_color_selector"
+        app:lineWidth="1dp"
+        app:viewType="rectangle" />
+
+    <Button
+        android:id="@+id/btn_resend_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:letterSpacing="0.1"
+        android:padding="0dp"
+        android:text="Resend code"
+        android:textAllCaps="false"
+        android:textColor="#7C73E6"
+        app:layout_constraintEnd_toEndOf="@id/pv_otp_code"
+        app:layout_constraintTop_toBottomOf="@id/pv_otp_code" />
+
+    <Button
+        android:id="@+id/btn_verify_otp"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Go to Newsfeed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_resend_code" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

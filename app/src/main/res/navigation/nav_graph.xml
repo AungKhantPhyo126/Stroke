@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/getAndVerifyOtpFragment">
 
+    <fragment
+        android:id="@+id/getAndVerifyOtpFragment"
+        android:name="com.stroke.stroke_android.auth.GetAndVerifyOtpFragment"
+        android:label="fragment_get_and_verify_otp"
+        tools:layout="@layout/fragment_get_and_verify_otp" />
 </navigation>
